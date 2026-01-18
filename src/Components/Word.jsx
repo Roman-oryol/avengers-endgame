@@ -1,6 +1,6 @@
 import './Word.scss';
 
-function Word({ children, attemts }) {
+function Word({ children, attempts }) {
   function getAttemptsText(attempts) {
     if (attempts === 1) return 'попытка';
     if (attempts >= 2 && attempts <= 4) return 'попытки';
@@ -11,7 +11,7 @@ function Word({ children, attemts }) {
     <section className="word">
       <div className="letters">{children} </div>
       <div className="attempts">
-        У вас осталось {attemts} {getAttemptsText(attemts)}
+        У вас осталось {attempts} {getAttemptsText(attempts)}
       </div>
     </section>
   );

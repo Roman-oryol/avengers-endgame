@@ -110,8 +110,6 @@ function App() {
     <>
       {isGameWon && <Confetti recycle={false} numberOfPieces={1000} />}
 
-      {/* <Timer /> */}
-
       <main className="container">
         <header className="header">
           <h1 className="title">Мстители: Финальная битва</h1>
@@ -127,7 +125,7 @@ function App() {
 
         <section className="chips">{chipElements}</section>
 
-        <Word attemts={heroes.length - 1 - wrongGuessCount}>
+        <Word attempts={heroes.length - 1 - wrongGuessCount}>
           {letterElements}
         </Word>
 

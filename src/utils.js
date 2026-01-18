@@ -24,6 +24,6 @@ export function getFarewellText(hero) {
 }
 
 export function getRandomWord() {
-  const randomIndex = Math.floor(Math.random() * words.length - 1);
+  const randomIndex = Math.floor(Math.random() * words.length);
   return words[randomIndex];
 }
