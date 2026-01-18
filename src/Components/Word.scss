@@ -1,0 +1,16 @@
+.word {
+  display: grid;
+  row-gap: 16px;
+
+  .letters {
+    display: flex;
+    justify-content: center;
+    column-gap: 2px;
+  }
+
+  .attempts {
+    margin: 0;
+    color: var(--color-key-active);
+    text-align: center;
+  }
+}

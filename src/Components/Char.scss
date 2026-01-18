@@ -1,0 +1,16 @@
+.letter {
+  display: grid;
+  place-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: 1.25;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-title);
+  border-bottom: var(--border-letter);
+  background-color: var(--color-bg-letter);
+
+  &--missed {
+    color: var(--color-key-absent);
+  }
+}

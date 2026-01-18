@@ -1,0 +1,102 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+:root {
+  --font-body: 'Hanken Grotesk', sans-serif;
+
+  --color-title: #f9f4da;
+  --color-text: #8e8e8e;
+  --color-text-chips: rgba(255 255 255 / 0.6);
+  --color-text-button: #1e1e1e;
+
+  --color-bg-body: #282726;
+  --color-bg-letter: #323232;
+
+  --color-key-default: #fcba29;
+  --color-key-correct: #10a95b;
+  --color-key-absent: #ec5d49;
+  --color-key-hover: #ffc845;
+  --color-key-active: #e6a720;
+
+  --color-reset-btn: #11b5e5;
+  --color-reset-btn-hover: #2ac1f0;
+  --color-reset-btn-active: #0fa0cc;
+
+  --transition-time: 0.2s;
+
+  //borders
+
+  --border-letter: 1px solid #f9f4da;
+  --border-button: 1px solid #d7d7d7;
+  --border-button-hover: 1px solid #b1b1b1;
+
+  // shadows
+
+  --shadow-key: 0 4px 8px rgba(252, 186, 41, 0.25);
+  --shadow-key-hover: 0 6px 12px rgba(252, 186, 41, 0.35);
+  --shadow-key-active: 0 2px 4px rgba(252, 186, 41, 0.3);
+
+  --shadow-reset: 0 4px 8px rgba(17, 181, 229, 0.25);
+  --shadow-reset-hover: 0 6px 12px rgba(17, 181, 229, 0.35);
+  --shadow-reset-active: 0 2px 4px rgba(17, 181, 229, 0.3);
+
+  // --color-status-win: #10a95b;
+  // --color-status-lose: #ba2a2a;
+  // --color-status-current: #7a5ea7;
+
+  // gradients
+
+  --gradient-status-win: linear-gradient(to right, #4caf50, #81c784);
+  --gradient-status-lose: linear-gradient(to right, #e53935, #ef5350);
+  --gradient-status-playing: linear-gradient(
+    135deg,
+    #8b0000 0%,
+    #000000 50%,
+    #00308f 100%
+  );
+
+  --color-black: #000000;
+  --color-light-gray: #d7d7d7;
+  --color-blue-light: #2ed3e9;
+  --color-blue: #298ec6;
+  --color-blue-medium: #328af1;
+  --color-blue-dark: #2d519f;
+}
+
+body {
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-text);
+  background-color: var(--color-bg-body);
+}
+
+.container {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --color-correct: ; */
+/* --color-present: ; */
+/* --color-absent: ; */

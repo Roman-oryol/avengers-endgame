@@ -1,0 +1,50 @@
+.key-button {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-text-button);
+  border: var(--border-button);
+  border-radius: 4px;
+  background-color: var(--color-key-default);
+  box-shadow: var(--shadow-key);
+  transform: translateY(0);
+  transition: all var(--transition-time) ease;
+  user-select: none;
+  cursor: pointer;
+
+  &--correct {
+    background-color: var(--color-key-correct);
+  }
+
+  &--absent {
+    background-color: var(--color-key-absent);
+  }
+
+  &--disabled {
+    opacity: 0.5;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-key-hover);
+    border-color: var(--border-button-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-key-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-key-active);
+    transform: translateY(1px);
+    box-shadow: var(--shadow-key-active);
+    border-color: #a0a0a0;
+    transition-duration: 0.1s;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,81 @@
+.chip {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px min-content;
+  grid-template-rows: 80px;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+  width: min-content;
+  border-radius: 10px;
+  user-select: none;
+
+  &--iron-man {
+    background: linear-gradient(to bottom, #e30022, #d3af37);
+  }
+
+  &--tanos {
+    background: linear-gradient(to bottom, #9400d3, #8500c4);
+  }
+
+  &--black-panther {
+    background: linear-gradient(to bottom, #1c1c1c, #2e0854);
+  }
+
+  &--black-widow {
+    background: linear-gradient(to bottom, #000000, #c41e3a);
+  }
+
+  &--captain-america {
+    background: linear-gradient(to bottom, #0d47a1, #42a5f5);
+  }
+
+  &--hulk {
+    background: linear-gradient(to bottom, #1b5e20, #66bb6a);
+  }
+
+  &--hawkeye {
+    background: linear-gradient(to bottom, #4b0082, #2f2f2f);
+  }
+
+  &--thor {
+    background: linear-gradient(to bottom, #607d8b, #90a4ae);
+  }
+
+  &--vision {
+    background: linear-gradient(to bottom, #8b0000, #9400d3);
+  }
+
+  &-img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-name {
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-text-chips);
+  }
+
+  &::after {
+    content: '💀';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    border-radius: 10px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s;
+  }
+
+  &-lost::after {
+    opacity: 1;
+  }
+}

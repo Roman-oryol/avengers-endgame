@@ -1,0 +1,91 @@
+main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 35px;
+  padding-block: 15px;
+}
+
+.header {
+  display: grid;
+  row-gap: 6px;
+  line-height: 1.3;
+  text-align: center;
+
+  .title {
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--color-title);
+  }
+
+  .instructions {
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.keyboard {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.reset-button {
+  width: 225px;
+  padding: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  border: var(--border-button);
+  border-radius: 4px;
+  background-color: var(--color-reset-btn);
+  box-shadow: var(--shadow-reset);
+  opacity: 0;
+  transform: translateY(0);
+  transition: all var(--transition-time) ease;
+  user-select: none;
+  cursor: pointer;
+  animation: puls 0.6s ease-in-out infinite alternate;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &:hover {
+    background-color: var(--color-reset-btn-hover);
+    border-color: var(--border-button-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-reset-hover);
+  }
+
+  &:active {
+    background-color: var(--color-reset-btn-active);
+    transform: translateY(1px);
+    box-shadow: var(--shadow-reset-active);
+    border-color: #a0a0a0;
+    transition-duration: 0.05s;
+  }
+}
+
+@keyframes puls {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
