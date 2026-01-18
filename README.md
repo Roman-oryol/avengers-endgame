@@ -1,16 +1,102 @@
-# React + Vite
+# Avengers Endgame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Игра "Виселица" в стиле Marvel. Угадывай слово по буквам, пока Танос не уничтожил всех Мстителей.
 
-Currently, two official plugins are available:
+## Что это
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Учебный пет-проект для практики React-хуков и управления состоянием. Классическая механика Hangman с темой Мстителей: каждая ошибка "убивает" одного супергероя. 8 попыток, чтобы спасти мир.
 
-## React Compiler
+**Механика:**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 8 попыток (по одной на каждого героя)
+- Слова из пула в 200+ русских слов
+- Клавиатура с кириллицей
+- Визуальная индикация угаданных/неправильных букв
+- Победа при угадывании всех букв
+- Проигрыш при потере всех героев
 
-## Expanding the ESLint configuration
+## Стек
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 18** — `useState`, `useRef`, `useEffect`
+- **Vite** — dev-сервер с HMR
+- **SCSS** — модульные стили для компонентов
+- **clsx** — условные CSS-классы
+- **react-confetti** — анимация конфетти при победе
+- **modern-normalize** — сброс стилей браузера
+
+## Установка
+
+```bash
+npm install
+npm run dev
+```
+
+Откроется на `http://localhost:5173`
+
+## Структура
+
+```
+src/
+├── Components/
+│   ├── Char.jsx       # Одна буква в слове
+│   ├── Chip.jsx       # Карточка героя
+│   ├── Key.jsx        # Клавиша на клавиатуре
+│   ├── Status.jsx     # Статус игры (победа/поражение)
+│   └── Word.jsx       # Контейнер для слова + счетчик попыток
+├── assets/img/        # Изображения героев
+├── heroes.js          # Данные о 8 Мстителях + Танос
+├── words.js           # ~200 русских слов для игры
+├── utils.js           # Хелперы (случайное слово, прощальные фразы)
+└── App.jsx            # Основная логика игры
+```
+
+## Ключевые компоненты
+
+**App.jsx** — центр управления:
+
+- Держит состояние слова и угаданных букв
+- Вычисляет количество ошибок
+- Проверяет условия победы/поражения
+- Управляет сбросом игры
+
+**Key.jsx** — кнопка клавиатуры:
+
+- 3 состояния: дефолт, правильная буква, неправильная
+- Дизейблится после клика или окончания игры
+- Aria-атрибуты для доступности
+
+**Chip.jsx** — карточка героя:
+
+- Переключается в серый цвет при "смерти"
+- CSS-модификатор для каждого героя
+
+**Status.jsx** — уведомления:
+
+- Выводит статус после каждого хода
+- Рандомная прощальная фраза при потере героя
+- Разные стили для победы/поражения
+
+**Фокус на кнопку перезапуска:**
+
+```javascript
+useEffect(() => {
+  resetGameRef.current.focus();
+}, [isGameOver]);
+```
+
+## Доступность
+
+- `aria-live="polite"` для озвучки статуса экранными читалками
+- `aria-label` на клавишах клавиатуры
+- `aria-disabled` для заблокированных кнопок
+- `.sr-only` секция с текстовым описанием состояния игры
+
+## Что можно улучшить
+
+- Добавить физическую клавиатуру (обработка `keydown`)
+- Таймер на раунд
+- Статистика (побед/поражений)
+- Уровни сложности (разная длина слов)
+- Анимации переходов между состояниями
+- Звуковые эффекты
+- Сохранение прогресса в localStorage
